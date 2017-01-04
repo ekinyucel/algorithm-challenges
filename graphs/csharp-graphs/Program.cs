@@ -28,10 +28,10 @@ namespace csharp_graphs
 
             list[4].Add(1);
 
-            list[6].Add(4); 
+            list[6].Add(4);
 
             var dfs = new DFS(list);
-            dfs.Iterative(0);
+            dfs.Traverse(0); // (0, 6) traversing stop when value is equal to 6 and prints path to this value
 
             Console.ReadLine();
         }

@@ -12,7 +12,7 @@ namespace csharp_graphs
             _list = list;
         }
 
-        public void Iterative(int s)
+        public void Traverse(int s, int searchVal = -1)
         {
             var visited = new bool[_list.Count];
             var stack = new Stack<int>();
@@ -21,19 +21,24 @@ namespace csharp_graphs
             while (stack.Count != 0)
             {
                 var v = stack.Pop();
+
+                if (v == searchVal && searchVal != -1) break;
+
                 if (!visited[v])
                 {
                     visited[v] = true;
                     Console.Write(v + " ");
-                    var secondStack = new Stack<int>();
+                    var neighbor = new Stack<int>();
+
                     foreach (var w in _list[v])
                     {
                         if (!visited[w])
-                            secondStack.Push(w);
+                            neighbor.Push(w);
                     }
-                    while (secondStack.Count != 0)
+                    
+                    while (neighbor.Count != 0)
                     {
-                        stack.Push(secondStack.Pop());
+                        stack.Push(neighbor.Pop());
                     }
                 }
             }
