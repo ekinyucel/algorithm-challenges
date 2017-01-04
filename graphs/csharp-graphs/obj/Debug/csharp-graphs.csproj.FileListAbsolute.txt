@@ -1,1 +1,6 @@
 C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\bin\Debug\csharp-graphs.exe.config
+C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\bin\Debug\csharp-graphs.exe
+C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\bin\Debug\csharp-graphs.pdb
+C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\obj\Debug\csharp-graphs.csprojResolveAssemblyReference.cache
+C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\obj\Debug\csharp-graphs.exe
+C:\Users\Ekin\Documents\GitHub\algorithm-challenges\graphs\csharp-graphs\obj\Debug\csharp-graphs.pdb
