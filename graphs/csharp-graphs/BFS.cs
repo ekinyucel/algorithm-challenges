@@ -5,26 +5,45 @@ namespace csharp_graphs
 {
     public class BFS
     {
+        private int _v;
         private static List<List<int>> _list;
 
-        public BFS(List<List<int>> list)
+        public BFS(int v)
         {
-            _list = list;
+            _v = v;
+            _list = new List<List<int>>();
+            for(var i=0; i < v; i++)
+                _list.Add(new List<int>());
         }
 
-        public void Traverse(int s, int searchVal = -1)
+        public void addEdge(int v, int w)
         {
-            var visited = new bool[_list.Count];
+            _list[v].Add(w);
+        }
+
+        public void Traverse(int s)
+        {
+            var visited = new bool[_v];
+
+            for (var i = 0; i < _v; i++)
+                visited[i] = false;
+
             var queue = new Queue<int>();
             queue.Enqueue(s);
+            visited[s] = true;
 
             while (queue.Count != 0)
             {
                 var v = queue.Dequeue();
+                Console.WriteLine(v);
 
-                if (!visited[v])
+                foreach (var w in _list[v])
                 {
-                    
+                    if (!visited[w])
+                    {
+                        visited[w] = true;
+                        queue.Enqueue(w);
+                    }
                 }
             }
         }

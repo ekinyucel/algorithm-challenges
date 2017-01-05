@@ -13,7 +13,8 @@ namespace csharp_graphs
             _list = list;
         }
 
-        public void Traverse(int s, int searchVal = -1)
+        #region traverse
+        public void Traverse(int s)
         {
             var visited = new bool[_list.Count];
             var stack = new Stack<int>();
@@ -22,8 +23,6 @@ namespace csharp_graphs
             while (stack.Count != 0)
             {
                 var v = stack.Pop();
-
-                if (v == searchVal && searchVal != -1) break;
 
                 if (!visited[v])
                 {
@@ -45,7 +44,9 @@ namespace csharp_graphs
             }
             Console.WriteLine();
         }
+        #endregion
 
+        #region search
         public bool Search(int s, int data)
         {
             var visited = new bool[_list.Count];
@@ -77,5 +78,6 @@ namespace csharp_graphs
             }
             return false;
         }
+        #endregion
     }
 }
