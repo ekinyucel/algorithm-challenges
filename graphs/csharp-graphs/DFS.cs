@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace csharp_graphs
 {
@@ -43,6 +44,38 @@ namespace csharp_graphs
                 }
             }
             Console.WriteLine();
+        }
+
+        public bool Search(int s, int data)
+        {
+            var visited = new bool[_list.Count];
+            var stack = new Stack<int>();
+            stack.Push(s);
+
+            while (stack.Count != 0)
+            {
+                var v = stack.Pop();
+
+                if (v == data) return true;
+
+                if (!visited[v])
+                {
+                    visited[v] = true;
+                    var neighbor = new Stack<int>();
+
+                    foreach (var w in _list[v])
+                    {
+                        if (!visited[w])
+                            neighbor.Push(w);
+                    }
+
+                    while (neighbor.Count != 0)
+                    {
+                        stack.Push(neighbor.Pop());
+                    }
+                }
+            }
+            return false;
         }
     }
 }

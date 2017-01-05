@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace csharp_graphs
 {
@@ -30,8 +31,22 @@ namespace csharp_graphs
 
             list[6].Add(4);
 
+            // DEPTH FİRST SEARCH
+            Console.WriteLine("DEPTH FİRST SEARCH");
             var dfs = new DFS(list);
-            dfs.Traverse(0); // (0, 6) traversing stop when value is equal to 6 and prints path to this value
+            dfs.Traverse(0);
+
+            while (true)
+            {
+                Console.WriteLine("Enter search value:");
+                var searchedValue = Convert.ToInt32(Console.ReadLine());
+                if(searchedValue == -1) break;
+                Console.WriteLine($"Searched value is in the graph: {dfs.Search(0, searchedValue)}");
+            }
+
+            // BREADTH FİRST SEARCH
+            /*var bfs = new BFS(list);
+            bfs.Traverse(0);*/
 
             Console.ReadLine();
         }
